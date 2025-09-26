@@ -1,49 +1,27 @@
-package ASSIGNMENTNO1;
+package Assignmentno3;
 
-public class Q5 {
-	    private int num;
+	import java.util.*;
 
-	    Q5() {
-	        this.num = 0;
-	    }
-
-	    Q5(int num) {
-	        this.num = num;
-	    }
-
-	    boolean isNegative() {
-	        return num < 0;
-	    }
-
-	    boolean isPositive() {
-	        return num > 0;
-	    }
-
-	    boolean isOdd() {
-	        return num % 2 != 0;
-	    }
-
-	    boolean isEven() {
-	        return num % 2 == 0;
-	    }
-
+	public class Q5 {
 	    public static void main(String[] args) {
-	        if (args.length == 0) {
-	            System.out.println("Please provide an integer as command line argument.");
-	            return;
+	        LinkedList<String> colors = new LinkedList<>(Arrays.asList("red", "blue", "yellow", "orange"));
+
+	        System.out.println("Original List using Iterator:");
+	        Iterator<String> it = colors.iterator();
+	        while (it.hasNext()) {
+	            System.out.print(it.next() + " ");
 	        }
 
-	        int value = Integer.parseInt(args[0]);
-	        Q5 myNum = new Q5(value);
+	        System.out.println("\n\nReverse List using ListIterator:");
+	        ListIterator<String> lit = colors.listIterator(colors.size());
+	        while (lit.hasPrevious()) {
+	            System.out.print(lit.previous() + " ");
+	        }
 
-	        System.out.println("Number: " + value);
-	        System.out.println("Is Negative? " + myNum.isNegative());
-	        System.out.println("Is Positive? " + myNum.isPositive());
-	        System.out.println("Is Odd? " + myNum.isOdd());
-	        System.out.println("Is Even? " + myNum.isEven());
+	        List<String> newColors = Arrays.asList("pink", "green");
+	        int index = colors.indexOf("yellow");
+	        colors.addAll(index, newColors);
+
+	        System.out.println("\n\nList after insertion: " + colors);
 	    }
 	}
-
-	    
-
-

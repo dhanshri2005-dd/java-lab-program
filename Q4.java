@@ -1,32 +1,30 @@
-package ASSIGNMENTNO1;
+package Assignmentno3;
+import java.io.*;
 
-	class MyDate {
-	    int dd, mm, yy;
-
-	    // Default constructor
-	    MyDate() {
-	        this.dd = 1;
-	        this.mm = 1;
-	        this.yy = 2000;
-	    }
-
-	    // Parameterized constructor
-	    MyDate(int dd, int mm, int yy) {
-	        this.dd = dd;
-	        this.mm = mm;
-	        this.yy = yy;
-	    }
-
-	    void displayDate() {
-	        System.out.println(this.dd + "-" + this.mm + "-" + this.yy);
-	    }
-public class Q4{
+	public class Q4 {
 	    public static void main(String[] args) {
-	        MyDate date1 = new MyDate();           // Using default constructor
-	        MyDate date2 = new MyDate(23, 8, 2025); // Using parameterized constructor
+	        try {
+	            BufferedReader br = new BufferedReader(new FileReader("sample.txt"));
 
-	        date1.displayDate(); // prints: 1-1-2000
-	        date2.displayDate(); // prints: 23-8-2025
+	            int lines = 0, words = 0, chars = 0;
+	            String line;
+
+	            while ((line = br.readLine()) != null) {
+	                lines++;
+	                chars += line.length();
+	                words += line.trim().split("\\s+").length;
+	            }
+
+	            br.close();
+
+	            System.out.println("Lines: " + lines);
+	            System.out.println("Words: " + words);
+	            System.out.println("Characters: " + chars);
+
+	        } catch (IOException e) {
+	            System.out.println("File Error: " + e);
+	        }
 	    }
 	}
-	}
+
+

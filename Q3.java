@@ -1,21 +1,37 @@
-package ASSIGNMENTNO1;
-import java.util.Arrays;
-public class Q3 {
+package Assignmentno3;
 
-	public static void main(String[] args) {
-	        int[] arr = {5, 3, 8, 1, 4}; 
-	        int sum = 0;
-	        for (int i = 0; i < arr.length; i++) {
-	            sum += arr[i];
-	        }
-	        Arrays.sort(arr);
-	        System.out.println("Sum of elements: " + sum );
-	        System.out.print("Array in ascending order: ");
-	        for (int i = 0; i < arr.length; i++) {
-	            System.out.print(arr[i] + " ");
-	        }
-	    }
-	}
-	
-	   
+
+import java.util.*;
+
+class NumberIsZeroException extends Exception {
+    NumberIsZeroException(String msg) {
+        super(msg);
+    }
+}
+
+public class Q3 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        try {
+            System.out.print("Enter a number: ");
+            int num = sc.nextInt();
+
+            if (num == 0) throw new NumberIsZeroException("Number is 0");
+
+            boolean prime = true;
+            for (int i = 2; i <= num / 2; i++) {
+                if (num % i == 0) {
+                    prime = false;
+                    break;
+                }
+            }
+
+            System.out.println(num + (prime ? " is Prime" : " is Not Prime"));
+
+        } catch (NumberIsZeroException e) {
+            System.out.println("Exception: " + e.getMessage());
+        }
+    }
+}
+
 
